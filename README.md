@@ -37,3 +37,13 @@ Then open your browser and hit your web server IP address.
 ## Bonus Features (after you get MVP)
 1.  Photo upload 
 1.  Messaging
+
+
+## TEAMS:
+1.  Ruby Red - **Rainu**, **Chris**, Martin, Ali, Walker
+1.  Carrot Orange - **Kate**, **Wiley**, Alejandro, Jim, Sequina
+1.  Seafoam Green - **Hannah**, **Cole**, Lauren, Leif
+1.  Banana Yellow - **Jen**, **Rolando**, Brian, Chris, Kirk
+1.  Cobalt Blue - **Anne**, **Brad**, Allen, Mohamed
+1.  Eggplant Purple -  **Marsie**, **Thomas**, Joel, Jon, Teriq
+1.  Barbie Pink - **Nikki**, **Matt**, Beau, Johnathan 
