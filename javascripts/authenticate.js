@@ -10,8 +10,17 @@ return {
         console.log("Error creating user:", error);
       } else {
         console.log("Successfully created user with uid:", userData.uid);
-        //use authData.uid to create user object in Firebase
-        console.log(newUser);
+        //capture value of monster-type
+        var monsterType = $("#monster-type[type='radio']:checked").val();
+        //use userData.uid to create user object in Firebase
+        newUser = {
+        	"uid": userData.uid,
+        	"username": userData.email,
+        	"monster-type": monsterType,
+        	"imageURL": "",
+        	"haunt-count": 0
+        };
+        firebaseRef.child('monster-dating').push(newUser);
       }
     });
 	},

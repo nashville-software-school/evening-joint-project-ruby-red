@@ -19,8 +19,6 @@ requirejs(
 
   var firebaseRef = new Firebase("https://monster-dating.firebaseio.com/");
 
-  var newUser;
-
   //click event to register user
   $("#login").on('click', function() {
     authenticate.logInUser(firebaseRef);
@@ -34,7 +32,7 @@ requirejs(
 
   //click event to login user
   $("#registerButton").on('click', function() {
-    authenticate.createUser(firebaseRef, newUser);
+    authenticate.createUser(firebaseRef);
     //load authenticated user as login
     //load main.hbs
   });
