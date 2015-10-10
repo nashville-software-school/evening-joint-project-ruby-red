@@ -14,12 +14,15 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "hbs", "bootstrap", "get-users"],
-  function($, Handlebars, bootstrap, getUsers) {
-
+  ["jquery", "hbs", "bootstrap", "get-users","login"],
+  function($, Handlebars, bootstrap, getUsers,login) {
+    login.load(); 
     getUsers.load(function(users) {
       require(['hbs!../templates/users'], function(userHbs) {
-        $("#users").html(userHbs({ users:users }));
+        $("#users").html(userHbs());
+
+
+       
       });
     });
   }
