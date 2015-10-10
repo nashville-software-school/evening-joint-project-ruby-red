@@ -14,13 +14,26 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "hbs", "bootstrap", "get-users"],
-  function($, Handlebars, bootstrap, getUsers) {
+  ["jquery", "hbs", "bootstrap", "get-users", "authenticate"],
+  function($, Handlebars, bootstrap, getUsers, authenticate) {
 
-    getUsers.load(function(users) {
-      require(['hbs!../templates/users'], function(userHbs) {
-        $("#users").html(userHbs({ users:users }));
-      });
-    });
-  }
-);
+  var firebaseRef = new Firebase("https://monster-dating.firebaseio.com/");
+
+  //click event to register user
+  $("#login").on('click', function() {
+    authenticate.logInUser(firebaseRef);
+    //load main.hbs
+  });
+
+  //click event for loading register hbs
+  $("#register").on('click', function() {
+    //load register.hbs
+  });
+
+  //click event to login user
+  $("#registerButton").on('click', function() {
+    authenticate.createUser(firebaseRef);
+    //load authenticated user as login
+    //load main.hbs
+  });
+});
