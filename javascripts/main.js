@@ -9,18 +9,20 @@ requirejs.config({
     'firebase': '../lib/bower_components/firebase/firebase'
   },
   shim: {
-    'bootstrap': ['jquery']
+    'bootstrap': ['jquery'],
+    'firebase': {
+      'exports': 'Firebase'
+    }
   }
 });
 
 requirejs(
-  ["jquery", "hbs", "bootstrap", "get-users"],
-  function($, Handlebars, bootstrap, getUsers) {
+  ["jquery", "hbs", "bootstrap", "get-users", "firebase"],
+  function($, Handlebars, bootstrap, getUsers, Firebase) {
 
-    getUsers.load(function(users) {
-      require(['hbs!../templates/users'], function(userHbs) {
-        $("#users").html(userHbs({ users:users }));
-      });
-    });
+    var usersObject = new Firebase("https://monster-dating.firebaseio.com/");
+    usersObject.child('users').on('value', function(snapshot){
+      console.log(snapshot);
+    })
   }
 );
