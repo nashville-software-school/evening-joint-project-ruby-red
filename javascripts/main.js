@@ -13,31 +13,35 @@ requirejs.config({
   }
 });
 
-
-  ["jquery", "hbs", "bootstrap", "get-users", "authenticate"],
-  function($, Handlebars, bootstrap, getUsers, authenticate) {
-    login.load();
-
-    register.load();
+requirejs(
+  ["jquery", "hbs", "bootstrap", "get-users", "authenticate", "login", "register"],
+  function($, Handlebars, bootstrap, getUsers, authenticate, login, register) {
 
   var firebaseRef = new Firebase("https://monster-dating.firebaseio.com/");
 
-  //click event to register user
-  $("#login").on('click', function() {
-    authenticate.logInUser(firebaseRef);
-    //load main.hbs
-  });
+  login.load();
 
   //click event for loading register hbs
-  $("#register").on('click', function() {
+  $(document).on('click', "#registerButton", function() {
     //load register.hbs
+    register.load();
+    $("#loginRegister").hide();
+  });
+
+  //click event to register user
+  $(document).on('click', "#loginButton", function() {
+    authenticate.logInUser(firebaseRef);
+    $("#loginRegister").hide();
+    //load main.hbs
   });
 
   //click event to login user
-  $("#registerButton").on('click', function() {
+  $(document).on('click', "#registerUserButton", function() {
     authenticate.createUser(firebaseRef);
     //load authenticated user as login
+    $("#loginRegister").show();
+    $("#loginRegister").prepend("<h3><b>You have been successfully registered. Please sign in with your new username and password.<b><h3>");
+    $("#register").hide();
     //load main.hbs
   });
 });
->>>>>>> 160b6bbe9ef569f484e917ef6416ed51052c7cfc

@@ -2,8 +2,9 @@ define(["jquery", "firebase"], function($, firebase) {
 
 return {
 	createUser: function(firebaseRef, newUser) {
-		firebaseRef.createUser({
-      email: $("#usernameInput").val(),
+		var userEmail = $("#usernameInput").val();
+    firebaseRef.createUser({
+      email: userEmail,
       password: $("#passwordInput").val()
     }, function(error, userData) {
       if (error) {
@@ -11,16 +12,17 @@ return {
       } else {
         console.log("Successfully created user with uid:", userData.uid);
         //capture value of monster-type
-        var monsterType = $("#monster-type[type='radio']:checked").val();
+        var monsterType = $(".monsterOpt[type='radio']:checked").val();
         //use userData.uid to create user object in Firebase
         newUser = {
         	"uid": userData.uid,
-        	"username": userData.email,
+          "email": userEmail,
+        	"username": '',
         	"monster-type": monsterType,
         	"imageURL": "",
         	"haunt-count": 0
         };
-        firebaseRef.child('monster-dating').push(newUser);
+        firebaseRef.child('users').push(newUser);
       }
     });
 	},
