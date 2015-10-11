@@ -1,0 +1,16 @@
+#homeButton {
+	margin-top: 8px !important;
+	margin-left: 2% !important;
+	margin-right: 2% !important;
+}
+
+ #logoutButton {
+ 	margin-top: 8px;
+ 	margin-right: 2%;
+ 	margin-left: 1225%;
+ }
+
+ #allUserPics {
+ 	height: 200px;
+ 	width: 200px;
+ }

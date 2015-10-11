@@ -9,35 +9,52 @@ requirejs.config({
     'firebase': '../lib/bower_components/firebase/firebase'
   },
   shim: {
-    'bootstrap': ['jquery']
+    'bootstrap': ['jquery'],
+    'firebase': {
+      'exports': 'Firebase'
+    }
   }
 });
 
-
-  ["jquery", "hbs", "bootstrap", "get-users", "authenticate"],
-  function($, Handlebars, bootstrap, getUsers, authenticate) {
-    login.load();
-
-    register.load();
+requirejs(
+  ["jquery", "hbs", "bootstrap", "firebase", "homepage", "get-users", "authenticate", "login", "register", "haunt"],
+  function($, Handlebars, bootstrap, Firebase, homepage, getUsers, authenticate, login, register, haunt) {
 
   var firebaseRef = new Firebase("https://monster-dating.firebaseio.com/");
 
-  //click event to register user
-  $("#login").on('click', function() {
-    authenticate.logInUser(firebaseRef);
-    //load main.hbs
-  });
+  haunt.like(firebaseRef, '-K0NoN0zb2BPllbVdyDp');
+
+  login.load();
 
   //click event for loading register hbs
-  $("#register").on('click', function() {
+  $(document).on('click', "#registerButton", function() {
     //load register.hbs
+    register.load();
+    $('#register').show();
+    $("#loginRegister").hide();
+  });
+
+  //click event to register user
+  $(document).on('click', "#loginButton", function() {
+    authenticate.logInUser(firebaseRef);
+    $("#loginRegister").hide();
+    //load main.hbs
+    getUsers.load(homepage.load);
   });
 
   //click event to login user
-  $("#registerButton").on('click', function() {
+  $(document).on('click', "#registerUserButton", function() {
     authenticate.createUser(firebaseRef);
     //load authenticated user as login
+    $("#loginRegister").show();
+    $("#loginRegister").prepend("<h3><b>You have been successfully registered. Please sign in with your new username and password.<b><h3>");
+    $("#register").hide();
     //load main.hbs
   });
+
+  //click event to logout
+  $(document).on('click', '#logoutButton', function() {
+    $('#homepage').remove();
+    login.load();
+  });
 });
->>>>>>> 160b6bbe9ef569f484e917ef6416ed51052c7cfc

@@ -5,9 +5,9 @@ define(["jquery","lodash", "hbs"], function($, _, hbs) {
   return {
     load: function(fn) {
       require(['hbs!../templates/register'], function(registerHbs) {
-        $("#register").html(registerHbs())
+        $("#register").html(registerHbs());
       });
-      console.log("it ran dat")
+      console.log("register template loaded");
     }
   };
 });
