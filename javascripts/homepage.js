@@ -4,9 +4,10 @@ define(["jquery", "lodash", "hbs"], function($, _, hbs) {
   return {
     load: function(usersObjects) {
       require(['hbs!../templates/homepage'], function(homepageHbs) {
-        $("#homepage").html(homepageHbs(usersObjects));
+        $("#homepage").html(homepageHbs({users:usersObjects}));
       });
       console.log("homepage template loaded");
+      console.log(usersObjects);
     }
   };
 });
