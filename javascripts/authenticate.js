@@ -13,7 +13,10 @@ return {
         console.log("Successfully created user with uid:", userData.uid);
         //capture value of monster-type
         var monsterType = $(".monsterOpts[type='radio']:checked").val();
+<<<<<<< HEAD
         console.log("monsterType", monsterType);
+=======
+>>>>>>> RainuProf
         //use userData.uid to create user object in Firebase
         newUser = {
           "uid": userData.uid,
