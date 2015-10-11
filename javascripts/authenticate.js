@@ -2,7 +2,7 @@ define(["jquery", "firebase"], function($, firebase) {
 
 return {
 	createUser: function(firebaseRef, newUser) {
-    var userEmail = $("#usernameInput").val();
+    var userEmail = $("#emailInput").val();
     firebaseRef.createUser({
       'email': userEmail,
       'password': $("#passwordInput").val()
@@ -17,10 +17,10 @@ return {
         newUser = {
           "uid": userData.uid,
           "email": userEmail,
-          "username": 'Frankenstein',
-          "monster-type": monsterType,
-          "imageURL": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Frankenstein's_monster_(Boris_Karloff).jpg",
-          "haunt-count": 0
+          "username": $('#usernameInput').val(),
+          "monsterType": monsterType,
+          "imageURL": $('#imgInput').val(),
+          "hauntCount": 0
         };
         firebaseRef.child('users').push(newUser);
       }
