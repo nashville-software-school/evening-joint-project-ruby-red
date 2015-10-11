@@ -38,8 +38,8 @@ requirejs(
   $(document).on('click', "#loginButton", function() {
     authenticate.logInUser(firebaseRef);
     $("#loginRegister").hide();
-    $("#loginUsername").val(''),
-    $("#loginPassword").val('')
+    $("#loginUsername").val('');
+    $("#loginPassword").val('');
     //load main.hbs
     getUsers.load(homepage.load);
   });
