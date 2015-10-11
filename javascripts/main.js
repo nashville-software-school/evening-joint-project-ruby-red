@@ -22,12 +22,6 @@ requirejs(
 
   var firebaseRef = new Firebase("https://monster-dating.firebaseio.com/");
 
-  getUsers.load();
-
-    firebaseRef.child('users').on('value', function(snapshot){
-      console.log(snapshot);
-    });
-
   login.load();
 
   //click event for loading register hbs

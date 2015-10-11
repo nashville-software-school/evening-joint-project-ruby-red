@@ -4,7 +4,7 @@ define(["jquery", "lodash", "hbs"], function($, _, hbs) {
   return {
     load: function(usersObjects) {
       require(['hbs!../templates/homepage'], function(homepageHbs) {
-        $("#homepage").html(usersObjects);
+        $("#homepage").html(homepageHbs(usersObjects));
       });
       console.log("homepage template loaded");
     }
