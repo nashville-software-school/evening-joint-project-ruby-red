@@ -1,11 +1,11 @@
-
-div 
-{
-	border: solid black 1px;
+* {
+	font-family: 'Creepster', cursive;
+	color: red;
 }
 
-/*body {
-  background-color: pink; }*/
+.cb-slideshow li {
+	list-style: none;
+}
 
 h1 {
   text-align: center;
