@@ -1,3 +1,19 @@
 
+div 
+{
+	border: solid black 1px;
+}
+
+/*body {
+  background-color: pink; }*/
+
+h1 {
+  text-align: center;
+  color: purple;
+  z-index: 2000;
+   }
+
+
+
 
 /*# sourceMappingURL=main.css.map */
