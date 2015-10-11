@@ -22,9 +22,11 @@ requirejs(
 
   var firebaseRef = new Firebase("https://monster-dating.firebaseio.com/");
 
+  getUsers.load();
+
     firebaseRef.child('users').on('value', function(snapshot){
       console.log(snapshot);
-    })
+    });
 
   login.load();
 
@@ -40,6 +42,7 @@ requirejs(
     authenticate.logInUser(firebaseRef);
     $("#loginRegister").hide();
     //load main.hbs
+    getUsers.load();
   });
 
   //click event to login user
