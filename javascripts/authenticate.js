@@ -12,14 +12,15 @@ return {
       } else {
         console.log("Successfully created user with uid:", userData.uid);
         //capture value of monster-type
-        var monsterType = $(".monsterOpt[type='radio']:checked").val();
+        var monsterType = $(".monsterOpts[type='radio']:checked").val();
+        console.log("monsterType", monsterType);
         //use userData.uid to create user object in Firebase
         newUser = {
           "uid": userData.uid,
           "email": userEmail,
           "username": 'Frankenstein',
           "monster-type": monsterType,
-          "imageURL": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Frankenstein's_monster_(Boris_Karloff).jpg",
+          "imageURL": $('#imgInput').val(),
           "haunt-count": 0
         };
         firebaseRef.child('users').push(newUser);

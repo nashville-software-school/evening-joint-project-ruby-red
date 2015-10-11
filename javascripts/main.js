@@ -17,8 +17,8 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "hbs", "bootstrap", "firebase", "homepage", "get-users", "authenticate", "login", "register"],
-  function($, Handlebars, bootstrap, Firebase, homepage, getUsers, authenticate, login, register) {
+  ["jquery", "hbs", "bootstrap", "firebase", "homepage", "get-users", "authenticate", "login", "register", "haunt"],
+  function($, Handlebars, bootstrap, Firebase, homepage, getUsers, authenticate, login, register, haunt) {
 
   var firebaseRef = new Firebase("https://monster-dating.firebaseio.com/");
 
@@ -28,6 +28,7 @@ requirejs(
   $(document).on('click', "#registerButton", function() {
     //load register.hbs
     register.load();
+    $('#register').show();
     $("#loginRegister").hide();
   });
 
@@ -47,5 +48,11 @@ requirejs(
     $("#loginRegister").prepend("<h3><b>You have been successfully registered. Please sign in with your new username and password.<b><h3>");
     $("#register").hide();
     //load main.hbs
+  });
+
+  //click event to logout
+  $(document).on('click', '#logoutButton', function() {
+    $('#homepage').remove();
+    login.load();
   });
 });
