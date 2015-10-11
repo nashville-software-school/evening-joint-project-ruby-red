@@ -9,15 +9,22 @@ requirejs.config({
     'firebase': '../lib/bower_components/firebase/firebase'
   },
   shim: {
-    'bootstrap': ['jquery']
+    'bootstrap': ['jquery'],
+    'firebase': {
+      'exports': 'Firebase'
+    }
   }
 });
 
 requirejs(
-  ["jquery", "hbs", "bootstrap", "get-users", "authenticate", "login", "register"],
-  function($, Handlebars, bootstrap, getUsers, authenticate, login, register) {
+  ["jquery", "hbs", "bootstrap", "firebase", "homepage", "get-users", "authenticate", "login", "register"],
+  function($, Handlebars, bootstrap, Firebase, homepage, getUsers, authenticate, login, register) {
 
   var firebaseRef = new Firebase("https://monster-dating.firebaseio.com/");
+
+    firebaseRef.child('users').on('value', function(snapshot){
+      console.log(snapshot);
+    })
 
   login.load();
 
