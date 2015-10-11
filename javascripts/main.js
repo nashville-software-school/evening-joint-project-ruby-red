@@ -22,6 +22,8 @@ requirejs(
 
   var firebaseRef = new Firebase("https://monster-dating.firebaseio.com/");
 
+  haunt.like(firebaseRef, '-K0NoN0zb2BPllbVdyDp');
+
   login.load();
 
   //click event for loading register hbs
@@ -37,7 +39,7 @@ requirejs(
     authenticate.logInUser(firebaseRef);
     $("#loginRegister").hide();
     //load main.hbs
-    getUsers.load();
+    getUsers.load(homepage.load);
   });
 
   //click event to login user
