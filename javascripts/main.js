@@ -38,6 +38,8 @@ requirejs(
   $(document).on('click', "#loginButton", function() {
     authenticate.logInUser(firebaseRef);
     $("#loginRegister").hide();
+    $("#loginUsername").val(''),
+    $("#loginPassword").val('')
     //load main.hbs
     getUsers.load(homepage.load);
   });
@@ -55,6 +57,12 @@ requirejs(
   //click event to logout
   $(document).on('click', '#logoutButton', function() {
     $('#homepage').remove();
-    login.load();
+    $("#loginRegister").show();
+  });
+
+  $(document).on('click', ".hauntButton", function() {
+    var userKey = $('.hauntButton').attr("id").split("$");
+    console.log("userKey", userKey[1]);
+    haunt.like(userkey[1]);
   });
 });
