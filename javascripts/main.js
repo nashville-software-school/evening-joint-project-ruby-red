@@ -17,8 +17,8 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "hbs", "bootstrap", "get-users", "firebase"],
-  function($, Handlebars, bootstrap, getUsers, Firebase) {
+  ["jquery", "hbs", "bootstrap", "get-users", "firebase", "homepage"],
+  function($, Handlebars, bootstrap, getUsers, Firebase, homepage) {
 
     var usersObject = new Firebase("https://monster-dating.firebaseio.com/");
     usersObject.child('users').on('value', function(snapshot){
