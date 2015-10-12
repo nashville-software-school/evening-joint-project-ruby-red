@@ -22,8 +22,6 @@ requirejs(
 
   var firebaseRef = new Firebase("https://monster-dating.firebaseio.com/");
 
-  haunt.like(firebaseRef, '-K0NoN0zb2BPllbVdyDp');
-
   login.load();
 
   //click event for loading register hbs
@@ -37,21 +35,11 @@ requirejs(
   //click event to register user
   $(document).on('click', "#loginButton", function() {
     authenticate.logInUser(firebaseRef);
-    $("#loginRegister").hide();
-    $("#loginUsername").val('');
-    $("#loginPassword").val('');
-    //load main.hbs
-    getUsers.load(homepage.load);
   });
 
   //click event to login user
   $(document).on('click', "#registerUserButton", function() {
     authenticate.createUser(firebaseRef);
-    //load authenticated user as login
-    $("#loginRegister").show();
-    $("#loginRegister").prepend("<h3><b>You have been successfully registered. Please sign in with your new username and password.<b><h3>");
-    $("#register").hide();
-    //load main.hbs
   });
 
   //click event to logout
@@ -61,8 +49,13 @@ requirejs(
   });
 
   $(document).on('click', ".hauntButton", function() {
-    var userKey = $('.hauntButton').attr("id").split("$");
-    console.log("userKey", userKey[1]);
-    haunt.like(userkey[1]);
+    $(this).attr("src", "../images/haunted.png");
+    var hauntButtonID = $(this).attr("id");
+    console.log("hauntButtonID", hauntButtonID);
+    var userKeyArray = hauntButtonID.split("#");
+    console.log("userKeyArray", userKeyArray);
+    var userKey = userKeyArray[1];
+    console.log("userKey", userKey);
+    haunt.like(userKey);
   });
 });
