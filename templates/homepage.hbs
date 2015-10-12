@@ -23,19 +23,21 @@
     <div class= "col-md-8" id="Match">
       <h2 id="hauntSoft">Haunting me softly...</h2>
       <div class="row">
-        <!-- <div class="col-md-4"></div> -->
 
 
         {{#each users}}
         <div class="col-md-4 col-md-offset-4">
-              <h2>{{username}}</h2>
-              <h3>{{monsterType}}</h3>
-              <img src={{imageURL}} id="allUserPics">
-              <img class="hauntButton" id="hauntID#{{@key}}" src="../images/nothaunted.png" alt="not haunted">
-              <hr id="break">
+            <h2 class="profile">{{username}}</h2>
+            <h3 class="profile">{{monsterType}}</h3>
+            <img class="profile" src={{imageURL}} id="allUserPics">
+            <p class="hauntButton profile"> 
+            Haunt 
+            <img class="hauntButton profile img-circle img-responsive" id="hauntID#{{@key}}" src="../images/nothaunted.png" alt="not haunted">
+            </p>
+            <hr id="break">
         </div>
         {{/each}}
-        <!-- <div class="col-md-4"></div> -->
+
     </div>
     <div class="col-md-2 sideCols2"></div>
   </div>
