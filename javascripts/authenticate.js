@@ -1,4 +1,4 @@
-define(["jquery", "firebase"], function($, firebase) {
+define(["jquery", "firebase", "get-users", "homepage"], function($, firebase, getUsers, homepage) {
 
 return {
 	createUser: function(firebaseRef, newUser) {
@@ -23,6 +23,9 @@ return {
           "hauntCount": 0
         };
         firebaseRef.child('users').push(newUser);
+        $("#loginRegister").show();
+        $("#loginRegister").prepend("<h3><b>You have been successfully registered. Please sign in with your new username and password.<b><h3>");
+        $("#register").hide();
       }
     });
   },
@@ -35,6 +38,10 @@ return {
         console.log("Login Failed!", error);
       } else{
         console.log("Authenticated successfully with payload:", authData);
+        getUsers.load(homepage.load);
+        $("#loginRegister").hide();
+        $("#loginUsername").val('');
+        $("#loginPassword").val('');
       }
 	  });
 	}

@@ -37,21 +37,11 @@ requirejs(
   //click event to register user
   $(document).on('click', "#loginButton", function() {
     authenticate.logInUser(firebaseRef);
-    $("#loginRegister").hide();
-    $("#loginUsername").val('');
-    $("#loginPassword").val('');
-    //load main.hbs
-    getUsers.load(homepage.load);
   });
 
   //click event to login user
   $(document).on('click', "#registerUserButton", function() {
     authenticate.createUser(firebaseRef);
-    //load authenticated user as login
-    $("#loginRegister").show();
-    $("#loginRegister").prepend("<h3><b>You have been successfully registered. Please sign in with your new username and password.<b><h3>");
-    $("#register").hide();
-    //load main.hbs
   });
 
   //click event to logout
