@@ -22,7 +22,7 @@ requirejs(
 
   var firebaseRef = new Firebase("https://monster-dating.firebaseio.com/");
 
-  haunt.like(firebaseRef, '-K0NoN0zb2BPllbVdyDp');
+  haunt.like('-K0NrlTJufb4u6HAm39u');
 
   login.load();
 
@@ -61,7 +61,7 @@ requirejs(
   });
 
   $(document).on('click', ".hauntButton", function() {
-    var userKey = $('.hauntButton').attr("id").split("$");
+    var userKey = $('.hauntButton', this).attr("id").split("$");
     console.log("userKey", userKey[1]);
     haunt.like(userkey[1]);
   });
