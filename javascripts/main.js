@@ -22,8 +22,6 @@ requirejs(
 
   var firebaseRef = new Firebase("https://monster-dating.firebaseio.com/");
 
-  haunt.like('-K0NrlTJufb4u6HAm39u');
-
   login.load();
 
   //click event for loading register hbs
