@@ -49,8 +49,13 @@ requirejs(
   });
 
   $(document).on('click', ".hauntButton", function() {
-    var userKey = $('.hauntButton', this).attr("id").split("$");
-    console.log("userKey", userKey[1]);
-    haunt.like(userkey[1]);
+    $(this).attr("src", "../images/haunted.png");
+    var hauntButtonID = $(this).attr("id");
+    console.log("hauntButtonID", hauntButtonID);
+    var userKeyArray = hauntButtonID.split("#");
+    console.log("userKeyArray", userKeyArray);
+    var userKey = userKeyArray[1];
+    console.log("userKey", userKey);
+    haunt.like(userKey);
   });
 });

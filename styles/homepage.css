@@ -38,3 +38,8 @@
  	height: 3px;
  	color: red !important;
  }
+
+ .hauntButton {
+ 	height: 100px;
+ 	width: 100px;
+ }
