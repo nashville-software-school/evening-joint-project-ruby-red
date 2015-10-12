@@ -1,3 +1,6 @@
+/** {
+	border: solid black 1px;
+}*/
 
 #header {
 	font-size: 60px;
@@ -20,8 +23,10 @@
  }
 
  #allUserPics {
+ 	display: block;
  	height: 200px;
  	width: 200px;
+ 	margin: 0 auto;
  }
 
  #sideCols1, #sideCols2 {
@@ -39,7 +44,13 @@
  	color: red !important;
  }
 
+ .profile {
+ 	font-size: 20px;
+ 	text-align: center;
+ }
+
  .hauntButton {
  	height: 100px;
  	width: 100px;
+ 	margin: 0 auto;
  }
