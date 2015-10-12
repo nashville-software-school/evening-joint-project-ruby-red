@@ -1,39 +1,42 @@
 <div class="container-fluid bg-danger ", id="homepage" >
 
   <div class="row">
-    <div class="col-md-12" align="center">
-      <h2>MONSTER MATCH</h2>
-      <h3>Find Your Beauty and Beast rolled into one!</h3>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-10" align="center" id="navbar">
+    <div class="col-md-12" align="center" id="navbar">
     <nav class="navbar navbar-default bg-danger">
       <div class="container-fluid">
         <ul class="nav navbar-nav">
           <li>
-            <input class="btn btn-default" id="homeButton" type="button" value="Home">
+            <input class="btn btn-danger" id="homeButton" type="button" value="Home">
           </li>
           <li>
-            <input class="btn btn-default" id="logoutButton" type="button" value="Logout">
+            <input class="btn btn-danger" id="logoutButton" type="button" value="Logout">
           </li>
         </ul>
       </div>
     </nav>
     </div>
-    <div class="col-md-1"></div>
-  </div><!--row end-->
+  </div>
 
-  <div class="row">
-    <div class="col-md-1"></div>
-    <div class= "col-md-10" id="Match"><h2>MATCH</h2>
-        {{#each users}}
-          <h2>{{email}}</h2>
-          <img src={{imageURL}} id="allUserPics">
-        {{/each}}
+  <div class="row" id="homePageDiv">
+    <div class="col-md-2 sideCols1"></div>
+
+    <div class= "col-md-8" id="Match">
+      <h2 id="hauntSoft">Haunting me softly...</h2>
+      <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+
+
+            {{#each users}}
+              <h2>{{username}}</h2>
+              <h3>{{monsterType}}</h3>
+              <img src={{imageURL}} id="allUserPics">
+              <hr id="break">
+            {{/each}}
+        </div>
+        <div class="col-md-4"></div>
     </div>
-    <div class="col-md-1"></div>
+    <div class="col-md-2 sideCols2"></div>
   </div>
 
 </div>

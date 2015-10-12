@@ -1,16 +1,40 @@
+
+#header {
+	font-size: 60px;
+}
+
 #homeButton {
+	font-size: 20px;
 	margin-top: 8px !important;
 	margin-left: 2% !important;
 	margin-right: 2% !important;
+	margin-bottom: 8px;
 }
 
  #logoutButton {
+ 	font-size: 20px;
  	margin-top: 8px;
  	margin-right: 2%;
- 	margin-left: 1225%;
+ 	margin-left: 1340%;
+ 	margin-bottom: 8px;
  }
 
  #allUserPics {
  	height: 200px;
  	width: 200px;
+ }
+
+ #sideCols1, #sideCols2 {
+ 	opacity: 100% !important;
+ }
+
+ #hauntSoft {
+ 	font-size: 100px;
+ 	text-align: center;
+ 	opacity: .2;
+ }
+
+ #break {
+ 	height: 3px;
+ 	color: red !important;
  }
