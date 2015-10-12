@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-4"></div>
   <div class="col-md-4">
-    <h1>Register to Find your real beast</h1>
+    <h3>Register to Find your real beast</h3>
     <fieldset>
       <form method="POST" action="/user/register" id="loginForm">
         <div class="formfield">
@@ -27,28 +27,45 @@
             <input id="imgInput" type="url" class="form-control" name="imgInput" placeholder="Profile Picture URL" aria-describedby="sizing-addon1">
           </div>
         </div>
-        <div class="row formfield">
-          <div class="col-md-4"></div>
+        <div class="input-group row formfield">
+          <div class="col-md-4">
+              <br>
+              <br>
+              <input type="radio" name="MonsterType" class="monsterOpts" value="Zombie"> 
+              <label class="monsterLabel"> Zombie </label>
+              <br>
+              <input type="radio" name="MonsterType" class="monsterOpts" value="Kraken"> 
+              <label class="monsterLabel"> Kraken </label>
+              <br>
+              <input type="radio" name="MonsterType" class="MonsterOpts" value="Dragon"> 
+              <label class="monsterLabel"> Dragon </label>
+              <br>
+              <input type="radio" name="MonsterType" class="monsterOpts" value="Goblin"> 
+              <label class="monsterLabel"> Goblin </label>
+              <br>
+              <input type="radio" name="MonsterType" class="monsterOpts" value="Troll"> 
+              <label class="monsterLabel"> Troll </label>
+              <br>
+              <input type="radio" name="MonsterType" class="monsterOpts" value="Ghoul"> 
+              <label class="monsterLabel"> Ghoul </label>
+              <br>
+              <input type="radio" name="MonsterType" class="monsterOpts" value="Siren"> 
+              <label class="monsterLabel"> Siren </label>
+              <br>
+              <input type="radio" name="MonsterType" class="monsterOpts" value="Harpie"> 
+              <label class="monsterLabel"> Harpie </label>
+              <input type="radio" name="MonsterType" class="monsterOpts" value="Extraterrestrial"> 
+              <label class="monsterLabel"> Extraterrestrial </label>
+              <br>
+            <br>
+          </div>
           <div class="col-md-4" align="center">
-            <br>
-              <input type="radio" name="MonsterType" class="monsterOpts" value="Zombie"> Zombie <br>
-              <input type="radio" name="MonsterType" class="monsterOpts" value="Kraken"> Kraken <br>
-              <input type="radio" name="MonsterType" class="MonsterOpts" value="Dragon"> Dragon <br>
-              <input type="radio" name="MonsterType" class="monsterOpts" value="Goblin"> Goblin <br>
-              <input type="radio" name="MonsterType" class="monsterOpts" value="Troll"> Troll <br>
-              <input type="radio" name="MonsterType" class="monsterOpts" value="Ghoul"> Ghoul <br>
-              <input type="radio" name="MonsterType" class="monsterOpts" value="Siren"> Siren <br>
-              <input type="radio" name="MonsterType" class="monsterOpts" value="Harpie"> Harpie <br>
-              <input type="radio" name="MonsterType" class="monsterOpts" value="Extraterrestrial"> Extraterrestrial <br>
-            <br>
           </div>
           <div class="col-md-4"></div>
         </div>
-        <input id='registerButton' type="submit" value="Find My Lover!"></input>
-
         
       </form>
-      <input id='registerUserButton' type="submit" value="Find My Lover!"></input>
+      <input class="input-group" id='registerUserButton' type="submit" value="Find My Lover!"></input>
     </fieldset>
   </div>
   <div class="col-md-4"></div>

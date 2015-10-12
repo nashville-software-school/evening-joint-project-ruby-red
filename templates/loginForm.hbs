@@ -1,22 +1,23 @@
-<div>
-  <form>
-    <div class="emailUsername">
-      <label for="InputEmail1/Username">Email address/ Username</label>
-      <input type="email/username" class="emailUsername" id="loginUsername" placeholder="Email/Username">
-    </div>
-    <div class="password">
-      <label for="inputPassword1">Password</label>
-      <input type="password" class="password" id="loginPassword" placeholder="Password">
-    </div>
-      <div class="form-group">
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <form>
+      <div class="formfield">
+        <div class="emailUsername input-group">
+          <label id="emailLoginLabel" for="InputEmail1/Username">Email address </label>
+          <input type="email/username" class="emailUsername" id="loginUsername" placeholder="Email">
+        </div>
+      </div>
+      <div class="formfield">
+        <div class="password input-group">
+          <label id="pwLoginLabel" for="inputPassword1">Password</label>
+          <input type="password" class="password" id="loginPassword" placeholder="Password">
+        </div>
+      </div>
+    </form>
+    <button type="login" class="btn btn-default" id="loginButton" >Login</button>
+    <button type="Register" class="btn btn-default" id="registerButton">Register</button>
+  </div>
+  <div class="col-md-4"></div>
 
-
-    </div>
-    <div class="checkbox">
-
-    </div>
-
-  </form>
-  <button type="login" class="btn btn-default" id="loginButton" >Login</button>
-  <button type="Register" class="btn btn-default" id="registerButton">Register</button>
 </div>
