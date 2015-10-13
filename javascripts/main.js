@@ -22,7 +22,14 @@ requirejs(
 
   var firebaseRef = new Firebase("https://monster-dating.firebaseio.com/");
 
-  login.load();
+/*
+I'm circumventing the login and register functionality during development
+*/
+    authenticate.logInUser(firebaseRef, "mncross@gmail.com", "abc");
+
+
+
+  // login.load();
 
   //click event for loading register hbs
   $(document).on('click', "#registerButton", function() {
@@ -35,6 +42,7 @@ requirejs(
   //click event to register user
   $(document).on('click', "#loginButton", function() {
     authenticate.logInUser(firebaseRef);
+    console.log("currentLoggedInUser", currentLoggedInUser);
   });
 
   //click event to login user
@@ -50,12 +58,6 @@ requirejs(
 
   $(document).on('click', ".hauntButton", function() {
     $(this).attr("src", "../images/haunted.png");
-    var hauntButtonID = $(this).attr("id");
-    console.log("hauntButtonID", hauntButtonID);
-    var userKeyArray = hauntButtonID.split("#");
-    console.log("userKeyArray", userKeyArray);
-    var userKey = userKeyArray[1];
-    console.log("userKey", userKey);
-    haunt.like(userKey);
+    haunt.like($(this).attr("id").split("#")[1]);
   });
 });

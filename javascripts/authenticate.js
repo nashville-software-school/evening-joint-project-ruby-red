@@ -1,4 +1,6 @@
-define(["jquery", "firebase", "get-users", "homepage"], function($, firebase, getUsers, homepage) {
+define(["jquery", "firebase", "get-users", "homepage"], function($, Firebase, getUsers, homepage) {
+
+var firebaseRef = new Firebase("https://monster-dating.firebaseio.com/");
 
 return {
 	createUser: function(firebaseRef, newUser) {
@@ -14,34 +16,33 @@ return {
         //capture value of monster-type
         var monsterType = $(".monsterOpts[type='radio']:checked").val();
         //use userData.uid to create user object in Firebase
-        newUser = {
-          "uid": userData.uid,
-          "email": userEmail,
-          "username": $('#usernameInput').val(),
-          "monsterType": monsterType,
-          "imageURL": $('#imgInput').val(),
-          "hauntCount": 0
-        };
-        firebaseRef.child('users').push(newUser);
+        firebaseRef.child('users').child(userData.uid).set({
+            "email": userEmail,
+            "username": $('#usernameInput').val(),
+            "monsterType": monsterType,
+            "imageURL": $('#imgInput').val(),
+            "hauntCount": 0
+          });
         $("#loginRegister").show();
         $("#loginRegister").prepend("<h3><b>You have been successfully registered. Please sign in with your new username and password.<b><h3>");
         $("#register").hide();
       }
     });
   },
-  logInUser: function(firebaseRef) {
-		firebaseRef.authWithPassword({
-      'email': $("#loginUsername").val(),
-      'password': $("#loginPassword").val()
+  logInUser: function(firebaseRef, email, password) {
+    firebaseRef.authWithPassword({
+      'email': email,  /*$("#loginUsername").val()*/
+      'password': password /*$("#loginPassword").val()*/
     }, function(error, authData) {
       if (error) {
         console.log("Login Failed!", error);
       } else{
-        console.log("Authenticated successfully with payload:", authData);
+        // console.log("Authenticated successfully with payload:", authData);
         getUsers.load(homepage.load);
         $("#loginRegister").hide();
         $("#loginUsername").val('');
         $("#loginPassword").val('');
+        getUsers.setCurrentLoggedInUser(authData.uid);
       }
 	  });
 	}
