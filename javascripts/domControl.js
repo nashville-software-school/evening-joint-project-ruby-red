@@ -12,9 +12,14 @@ return {
     });
 	},
 	loadOtherUserProfiles: function(otherUserJSON) {
-		require(['hbs!../templates/homepage'], function(homepageHbs) {
-      $("#homepage").html(homepageHbs({users:otherUserJSON}));
+		require(['hbs!../templates/userProfiles'], function(userProfilesHbs) {
+      $("#homepage").html(userProfilesHbs({users:otherUserJSON}));
     });
+	},
+	loadMyProfile: function(currentLoggedInUser) {
+		require(['hbs!../templates/myProfile'], function(myProfileHbs) {
+			$('#myProfile').html(myProfileHbs(currentLoggedInUser));
+		});
 	}
 
 };

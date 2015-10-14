@@ -1,0 +1,24 @@
+<div class="container-fluid bg-danger" id="homepage">
+
+  <ul class="nav nav-pills bg-danger row">
+    <li><button class="btn btn-danger" id="homeButton" type="button">Home</button></li>
+    <li><button class="btn btn-danger" id="logoutButton" type="button">Logout</button></li>
+    <li><button class="btn btn-danger" id="myProfileButton" type="button">My Profile</button></li>
+  </ul>
+
+  <div class="row" id="homePageDiv">
+    <div class="col-md-2 sideCols1"></div>
+    <div class= "col-md-8" id="Match">
+      <h2 id="hauntSoft">Your Profile</h2>
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <h2 class="profile">{{username}}</h2>
+            <h3 class="profile">{{monsterType}}</h3>
+            <img class="profile" src="{{imageURL}}" id="allUserPics">
+            <hr id="break">
+        </div>
+      </div>
+      <div class="col-md-2 sideCols2"></div>
+    </div>
+  </div>
+</div>

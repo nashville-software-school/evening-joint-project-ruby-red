@@ -28,9 +28,9 @@ I'm circumventing the login and register functionality during development
   authenticate.logInUser(firebaseRef, "mncross@gmail.com", "abc");
   $("#loginRegister").show();
 
-/*                                                                   */
+/*                                            */
 
-  // login.load();
+  // domControl.loadLoginForm();
 
   //click event for loading register hbs
   $(document).on('click', "#registerButton", function() {
@@ -57,10 +57,17 @@ I'm circumventing the login and register functionality during development
     $("#loginRegister").show();
   });
 
+  //click event to haunt
   $(document).on('click', ".hauntButton", function() {
     $(this).attr("src", "../images/haunted.png");
     var hauntedUid = $(this).attr("uid");
     // console.log("hauntedUid", hauntedUid);
     haunt.increment(hauntedUid);
   });
+
+  //click event to show my profile
+  $(document).on('click', '#myProfileButton', function() {
+    $('#homepage').hide();
+    getUsers.loadCurrentUser(domControl.loadMyProfile);
+  })
 });
