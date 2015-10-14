@@ -25,7 +25,7 @@ requirejs(
 /*
 I'm circumventing the login and register functionality during development
 */
-  authenticate.logInUser(firebaseRef, "mncross@gmail.com", "abc");
+  authenticate.logInUser("mncross@gmail.com", "abc");
   $("#loginRegister").show();
 
 /*                                            */

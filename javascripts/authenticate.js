@@ -29,7 +29,7 @@ return {
       }
     });
   },
-  logInUser: function(firebaseRef, email, password) {
+  logInUser: function(email, password) {
     firebaseRef.authWithPassword({
       'email': email,  /*$("#loginUsername").val()*/
       'password': password /*$("#loginPassword").val()*/
