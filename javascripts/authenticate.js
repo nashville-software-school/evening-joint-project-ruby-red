@@ -1,4 +1,4 @@
-define(["jquery", "firebase", "get-users", "homepage"], function($, Firebase, getUsers, homepage) {
+define(["jquery", "firebase", "getUsers", "domControl"], function($, Firebase, getUsers, domControl) {
 
 var firebaseRef = new Firebase("https://monster-dating.firebaseio.com/");
 
@@ -38,7 +38,7 @@ return {
         console.log("Login Failed!", error);
       } else{
         // console.log("Authenticated successfully with payload:", authData);
-        getUsers.load(homepage.load);
+        getUsers.loadAllUsers(domControl.loadOtherUserProfiles);
         $("#loginRegister").hide();
         $("#loginUsername").val('');
         $("#loginPassword").val('');

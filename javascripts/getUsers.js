@@ -1,9 +1,9 @@
-define(["jquery","lodash", "homepage"], function($, _, homepage) {
+define(["jquery"], function($) {
 
 var currentLoggedInUser = "";
 
   return {
-    load: function(fn) {
+    loadAllUsers: function(fn) {
       $.ajax("https://monster-dating.firebaseio.com/users.json").done(function(users) {
       	// console.log("user JSON", users);
       	fn(users);

@@ -17,24 +17,25 @@ requirejs.config({
 });
 
 requirejs(
-  ["jquery", "hbs", "bootstrap", "firebase", "homepage", "get-users", "authenticate", "login", "register", "haunt"],
-  function($, Handlebars, bootstrap, Firebase, homepage, getUsers, authenticate, login, register, haunt) {
+  ["jquery", "hbs", "bootstrap", "firebase", "getUsers", "authenticate", "domControl", "haunt"],
+  function($, Handlebars, bootstrap, Firebase, getUsers, authenticate, domControl, haunt) {
 
   var firebaseRef = new Firebase("https://monster-dating.firebaseio.com/");
 
 /*
 I'm circumventing the login and register functionality during development
 */
-    authenticate.logInUser(firebaseRef, "mncross@gmail.com", "abc");
+  authenticate.logInUser(firebaseRef, "mncross@gmail.com", "abc");
+  $("#loginRegister").show();
 
-
+/*                                                                   */
 
   // login.load();
 
   //click event for loading register hbs
   $(document).on('click', "#registerButton", function() {
     //load register.hbs
-    register.load();
+    domControl.loadRegistrationForm();
     $('#register').show();
     $("#loginRegister").hide();
   });
@@ -58,6 +59,8 @@ I'm circumventing the login and register functionality during development
 
   $(document).on('click', ".hauntButton", function() {
     $(this).attr("src", "../images/haunted.png");
-    haunt.like($(this).attr("id").split("#")[1]);
+    var hauntedUid = $(this).attr("uid");
+    // console.log("hauntedUid", hauntedUid);
+    haunt.increment(hauntedUid);
   });
 });
